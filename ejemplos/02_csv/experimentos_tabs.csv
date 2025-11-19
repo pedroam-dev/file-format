@@ -1,0 +1,9 @@
+experimento_id	fecha	algoritmo	dataset	accuracy	precision	recall	f1_score	tiempo_ejecucion_seg	observaciones
+EXP-001	2025-11-01	Random Forest	MNIST	0.9456	0.9401	0.9512	0.9456	45.3	n_estimators=100, max_depth=15
+EXP-002	2025-11-03	SVM (RBF)	MNIST	0.9123	0.9087	0.9159	0.9123	128.7	C=1.0, gamma='scale'
+EXP-003	2025-11-05	Neural Network	MNIST	0.9678	0.9645	0.9711	0.9678	312.8	Arquitectura: [128, 64, 10], Adam optimizer
+EXP-004	2025-11-08	Gradient Boosting	MNIST	0.9534	0.9512	0.9556	0.9534	89.2	learning_rate=0.1, n_estimators=100
+EXP-005	2025-11-10	KNN	MNIST	0.9301	0.9278	0.9324	0.9301	23.5	n_neighbors=5, weights='distance'
+EXP-006	2025-11-12	Logistic Regression	MNIST	0.8945	0.8923	0.8967	0.8945	15.7	max_iter=1000, solver='lbfgs'
+EXP-007	2025-11-15	Random Forest	CIFAR-10	0.7234	0.7189	0.7279	0.7234	156.4	n_estimators=200, max_depth=20
+EXP-008	2025-11-17	Neural Network	CIFAR-10	0.8123	0.8098	0.8148	0.8123	892.3	CNN: Conv2D + MaxPool + Dense, 50 epochs

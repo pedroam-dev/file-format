@@ -1,0 +1,196 @@
+{
+  "investigacion": {
+    "titulo": "Análisis de Sentimientos en Redes Sociales",
+    "investigador_principal": {
+      "nombre": "Dr. Roberto Martínez",
+      "email": "rmartinez@universidad.edu",
+      "orcid": "0000-0002-1234-5678",
+      "afiliacion": {
+        "institucion": "Universidad Nacional de IA",
+        "departamento": "Ciencia de Datos",
+        "pais": "España"
+      }
+    },
+    "coautores": [
+      {
+        "nombre": "Dra. Elena Vargas",
+        "email": "evargas@universidad.edu",
+        "rol": "Análisis Estadístico"
+      },
+      {
+        "nombre": "Ing. Carlos Ruiz",
+        "email": "cruiz@universidad.edu",
+        "rol": "Implementación Técnica"
+      }
+    ],
+    "metadata": {
+      "fecha_inicio": "2025-01-15",
+      "fecha_fin": "2025-11-19",
+      "financiamiento": {
+        "agencia": "Ministerio de Ciencia",
+        "proyecto_id": "MCN-2025-4567",
+        "monto": 85000,
+        "moneda": "EUR"
+      },
+      "keywords": ["NLP", "sentiment analysis", "social media", "deep learning", "transformers"]
+    },
+    "dataset": {
+      "nombre": "Twitter Sentiment Spanish",
+      "version": "2.1",
+      "tamaño": {
+        "tweets": 150000,
+        "usuarios_unicos": 45230,
+        "tamano_mb": 342.5
+      },
+      "distribucion_clases": {
+        "positivo": 52340,
+        "neutral": 48125,
+        "negativo": 49535
+      },
+      "idiomas": ["es", "es-MX", "es-AR"],
+      "periodo": {
+        "desde": "2024-01-01",
+        "hasta": "2025-10-31"
+      }
+    },
+    "experimentos": [
+      {
+        "id": "EXP-001",
+        "fecha": "2025-03-20",
+        "modelo": {
+          "nombre": "BERT-base-spanish",
+          "arquitectura": "Transformer",
+          "parametros": 110000000,
+          "pretrained": true,
+          "fuente": "dccuchile/bert-base-spanish-wwm-cased"
+        },
+        "hiperparametros": {
+          "batch_size": 32,
+          "learning_rate": 2e-5,
+          "epochs": 5,
+          "max_length": 128,
+          "warmup_steps": 500,
+          "weight_decay": 0.01
+        },
+        "resultados": {
+          "accuracy": 0.8534,
+          "precision": 0.8423,
+          "recall": 0.8598,
+          "f1_score": 0.8509,
+          "matriz_confusion": [
+            [8234, 567, 432],
+            [623, 7856, 445],
+            [498, 523, 8122]
+          ],
+          "metricas_por_clase": {
+            "positivo": {
+              "precision": 0.8712,
+              "recall": 0.8934,
+              "f1_score": 0.8821,
+              "support": 9233
+            },
+            "neutral": {
+              "precision": 0.8598,
+              "recall": 0.8523,
+              "f1_score": 0.8560,
+              "support": 8924
+            },
+            "negativo": {
+              "precision": 0.8183,
+              "recall": 0.8234,
+              "f1_score": 0.8208,
+              "support": 9143
+            }
+          },
+          "tiempo_entrenamiento_seg": 3845.2,
+          "tiempo_inferencia_ms": 23.4
+        }
+      },
+      {
+        "id": "EXP-002",
+        "fecha": "2025-04-15",
+        "modelo": {
+          "nombre": "RoBERTa-base-BNE",
+          "arquitectura": "Transformer",
+          "parametros": 125000000,
+          "pretrained": true,
+          "fuente": "PlanTL-GOB-ES/roberta-base-bne"
+        },
+        "hiperparametros": {
+          "batch_size": 32,
+          "learning_rate": 1e-5,
+          "epochs": 5,
+          "max_length": 128,
+          "warmup_steps": 500,
+          "weight_decay": 0.01
+        },
+        "resultados": {
+          "accuracy": 0.8712,
+          "precision": 0.8645,
+          "recall": 0.8723,
+          "f1_score": 0.8683,
+          "matriz_confusion": [
+            [8456, 423, 354],
+            [512, 8123, 289],
+            [423, 456, 8264]
+          ],
+          "metricas_por_clase": {
+            "positivo": {
+              "precision": 0.8923,
+              "recall": 0.9156,
+              "f1_score": 0.9038,
+              "support": 9233
+            },
+            "neutral": {
+              "precision": 0.8712,
+              "recall": 0.8634,
+              "f1_score": 0.8673,
+              "support": 8924
+            },
+            "negativo": {
+              "precision": 0.8456,
+              "recall": 0.8378,
+              "f1_score": 0.8417,
+              "support": 9143
+            }
+          },
+          "tiempo_entrenamiento_seg": 4123.7,
+          "tiempo_inferencia_ms": 25.8
+        }
+      }
+    ],
+    "conclusiones": {
+      "mejor_modelo": "RoBERTa-base-BNE",
+      "mejora_accuracy": 0.0178,
+      "mejora_porcentual": 2.09,
+      "observaciones": [
+        "RoBERTa supera a BERT en todas las métricas",
+        "Ambos modelos tienen dificultad con sarcasmo",
+        "Clase 'negativo' presenta menor recall en ambos",
+        "Tiempo de inferencia similar en ambos modelos"
+      ],
+      "trabajo_futuro": [
+        "Aumentar dataset con tweets sarcásticos",
+        "Probar arquitecturas más recientes (GPT-3.5)",
+        "Implementar ensemble de modelos",
+        "Análisis de aspectos específicos"
+      ]
+    },
+    "referencias_bibliograficas": [
+      {
+        "titulo": "Attention Is All You Need",
+        "autores": ["Vaswani et al."],
+        "año": 2017,
+        "venue": "NeurIPS",
+        "doi": "10.5555/3295222.3295349"
+      },
+      {
+        "titulo": "BERT: Pre-training of Deep Bidirectional Transformers",
+        "autores": ["Devlin et al."],
+        "año": 2019,
+        "venue": "NAACL",
+        "doi": "10.18653/v1/N19-1423"
+      }
+    ]
+  }
+}

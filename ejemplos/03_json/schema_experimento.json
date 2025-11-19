@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Experimento Machine Learning",
+  "description": "Schema para validar experimentos de ML en formato JSON",
+  "type": "object",
+  "required": ["id", "fecha", "modelo", "dataset", "resultados"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EXP-[0-9]{3}$",
+      "description": "Identificador único del experimento"
+    },
+    "fecha": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha del experimento en formato ISO 8601"
+    },
+    "investigador": {
+      "type": "object",
+      "required": ["nombre", "email"],
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "minLength": 3
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "orcid": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+        }
+      }
+    },
+    "modelo": {
+      "type": "object",
+      "required": ["nombre", "tipo"],
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "tipo": {
+          "type": "string",
+          "enum": ["clasificacion", "regresion", "clustering", "reduccion_dimensionalidad"]
+        },
+        "parametros": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "arquitectura": {
+          "type": "string"
+        }
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "required": ["nombre", "tamaño"],
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "tamaño": {
+          "type": "object",
+          "required": ["train", "test"],
+          "properties": {
+            "train": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "test": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "validation": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "num_features": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "num_classes": {
+          "type": "integer",
+          "minimum": 2
+        }
+      }
+    },
+    "hiperparametros": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "resultados": {
+      "type": "object",
+      "required": ["accuracy"],
+      "properties": {
+        "accuracy": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "precision": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "recall": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "f1_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "tiempo_entrenamiento_seg": {
+          "type": "number",
+          "minimum": 0
+        },
+        "tiempo_inferencia_ms": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["TensorFlow", "PyTorch", "Scikit-learn", "JAX", "Keras"]
+        },
+        "hardware": {
+          "type": "object",
+          "properties": {
+            "gpu": {
+              "type": "string"
+            },
+            "ram_gb": {
+              "type": "number"
+            },
+            "cpu": {
+              "type": "string"
+            }
+          }
+        },
+        "reproducibilidad": {
+          "type": "object",
+          "properties": {
+            "seed": {
+              "type": "integer"
+            },
+            "version_framework": {
+              "type": "string"
+            },
+            "version_python": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

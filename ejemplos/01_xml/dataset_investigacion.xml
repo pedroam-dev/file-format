@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Ejemplo 1: Representación de un Dataset de Investigación
+    Caso de uso: Resultados de experimentos en Machine Learning
+-->
+<dataset>
+    <metadata>
+        <title>Estudio de Precisión de Modelos de Clasificación</title>
+        <author>Dra. María González</author>
+        <institution>Universidad Nacional de Ciencia de Datos</institution>
+        <date>2025-11-15</date>
+        <version>1.2</version>
+        <license>CC BY 4.0</license>
+    </metadata>
+    
+    <experiments>
+        <experiment id="exp001">
+            <model_name>Random Forest</model_name>
+            <hyperparameters>
+                <n_estimators>100</n_estimators>
+                <max_depth>15</max_depth>
+                <min_samples_split>2</min_samples_split>
+            </hyperparameters>
+            <dataset_info>
+                <training_samples>8000</training_samples>
+                <test_samples>2000</test_samples>
+                <features>25</features>
+            </dataset_info>
+            <results>
+                <accuracy>0.9456</accuracy>
+                <precision>0.9301</precision>
+                <recall>0.9587</recall>
+                <f1_score>0.9442</f1_score>
+                <confusion_matrix>
+                    <row>950 30</row>
+                    <row>20 1000</row>
+                </confusion_matrix>
+            </results>
+            <execution_time unit="seconds">45.3</execution_time>
+        </experiment>
+        
+        <experiment id="exp002">
+            <model_name>Neural Network</model_name>
+            <hyperparameters>
+                <layers>
+                    <layer type="dense" units="128" activation="relu"/>
+                    <layer type="dropout" rate="0.3"/>
+                    <layer type="dense" units="64" activation="relu"/>
+                    <layer type="dense" units="2" activation="softmax"/>
+                </layers>
+                <optimizer>Adam</optimizer>
+                <learning_rate>0.001</learning_rate>
+                <epochs>50</epochs>
+            </hyperparameters>
+            <dataset_info>
+                <training_samples>8000</training_samples>
+                <test_samples>2000</test_samples>
+                <features>25</features>
+            </dataset_info>
+            <results>
+                <accuracy>0.9612</accuracy>
+                <precision>0.9543</precision>
+                <recall>0.9689</recall>
+                <f1_score>0.9615</f1_score>
+                <training_history>
+                    <epoch num="10" loss="0.234" val_loss="0.256"/>
+                    <epoch num="20" loss="0.145" val_loss="0.167"/>
+                    <epoch num="30" loss="0.098" val_loss="0.123"/>
+                    <epoch num="40" loss="0.067" val_loss="0.109"/>
+                    <epoch num="50" loss="0.045" val_loss="0.101"/>
+                </training_history>
+            </results>
+            <execution_time unit="seconds">312.7</execution_time>
+        </experiment>
+    </experiments>
+    
+    <notes>
+        <note timestamp="2025-11-15T10:30:00">
+            Neural Network supera a Random Forest en 1.56% en accuracy
+        </note>
+        <note timestamp="2025-11-15T11:45:00">
+            Considerar ensemble de ambos modelos para próximo experimento
+        </note>
+    </notes>
+</dataset>

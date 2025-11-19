@@ -1,0 +1,9 @@
+id_transaccion|fecha_hora|cliente_id|producto|cantidad|precio_unitario|total|metodo_pago|notas
+TXN-2025-001|2025-11-19 09:15:30|CLI-4523|Laptop Dell XPS 15|1|1299.99|1299.99|Tarjeta Crédito|Cliente frecuente - aplicar descuento 5%
+TXN-2025-002|2025-11-19 09:47:12|CLI-8891|Mouse Logitech MX|2|89.50|179.00|PayPal|Envío urgente solicitado
+TXN-2025-003|2025-11-19 10:03:45|CLI-2341|Monitor LG 27"|1|349.99|349.99|Transferencia|Sin comentarios
+TXN-2025-004|2025-11-19 10:28:33|CLI-5672|Teclado Mecánico|3|125.00|375.00|Tarjeta Débito|Regalo - incluir nota: "Feliz cumpleaños, equipo!"
+TXN-2025-005|2025-11-19 11:15:22|CLI-9012|USB-C Hub|1|45.99|45.99|Efectivo|Cliente pidió factura
+TXN-2025-006|2025-11-19 11:52:18|CLI-3456|Webcam HD|2|79.99|159.98|Tarjeta Crédito|Devolución anterior - verificar stock
+TXN-2025-007|2025-11-19 12:30:05|CLI-7823|Auriculares Sony|1|199.00|199.00|PayPal|Cliente VIP
+TXN-2025-008|2025-11-19 13:14:50|CLI-4523|Cable HDMI 2m|5|12.50|62.50|Tarjeta Crédito|Misma dirección que TXN-2025-001

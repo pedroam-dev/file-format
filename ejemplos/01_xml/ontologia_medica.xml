@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Ejemplo 2: Ontología Médica Simplificada
+    Caso de uso: Representación de conocimiento jerárquico en sistemas de salud
+-->
+<ontology xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns:owl="http://www.w3.org/2002/07/owl#">
+    
+    <metadata>
+        <title>Ontología de Enfermedades Cardiovasculares</title>
+        <domain>Medicina - Cardiología</domain>
+        <version>2.0</version>
+    </metadata>
+    
+    <classes>
+        <class id="C001">
+            <name>Enfermedad</name>
+            <definition>Condición anormal que afecta la salud</definition>
+            <parent>Thing</parent>
+            <properties>
+                <property name="severidad" type="string" domain="[leve, moderada, severa, crítica]"/>
+                <property name="prevalencia" type="float" unit="percentage"/>
+                <property name="mortalidad" type="float" unit="percentage"/>
+            </properties>
+        </class>
+        
+        <class id="C002">
+            <name>EnfermedadCardiovascular</name>
+            <definition>Enfermedad que afecta el corazón o vasos sanguíneos</definition>
+            <parent>C001</parent>
+            <synonyms>
+                <synonym lang="en">Cardiovascular Disease</synonym>
+                <synonym>Cardiopatía</synonym>
+            </synonyms>
+        </class>
+        
+        <class id="C003">
+            <name>Hipertension</name>
+            <definition>Presión arterial elevada de forma crónica</definition>
+            <parent>C002</parent>
+            <attributes>
+                <systolic_threshold unit="mmHg">140</systolic_threshold>
+                <diastolic_threshold unit="mmHg">90</diastolic_threshold>
+            </attributes>
+            <risk_factors>
+                <factor weight="0.35">obesidad</factor>
+                <factor weight="0.25">sedentarismo</factor>
+                <factor weight="0.20">estrés</factor>
+                <factor weight="0.15">dieta_alta_en_sodio</factor>
+                <factor weight="0.05">genética</factor>
+            </risk_factors>
+        </class>
+        
+        <class id="C004">
+            <name>InfartoMiocardio</name>
+            <definition>Muerte del tejido cardíaco por falta de flujo sanguíneo</definition>
+            <parent>C002</parent>
+            <related_classes>
+                <relation type="causes" target="C003" probability="0.68"/>
+                <relation type="requires" target="C005"/>
+            </related_classes>
+            <symptoms>
+                <symptom severity="high">dolor_pecho</symptom>
+                <symptom severity="high">dificultad_respirar</symptom>
+                <symptom severity="medium">sudoracion</symptom>
+                <symptom severity="medium">nausea</symptom>
+            </symptoms>
+        </class>
+        
+        <class id="C005">
+            <name>Tratamiento</name>
+            <definition>Intervención médica para manejar una enfermedad</definition>
+            <parent>Thing</parent>
+        </class>
+    </classes>
+    
+    <instances>
+        <instance id="I001" class="C003">
+            <patient_id>PAT-2025-00145</patient_id>
+            <diagnosis_date>2025-10-20</diagnosis_date>
+            <measurements>
+                <systolic>152</systolic>
+                <diastolic>95</diastolic>
+            </measurements>
+            <severidad>moderada</severidad>
+        </instance>
+    </instances>
+    
+    <rules>
+        <rule id="R001">
+            <description>Si presión sistólica > 180 O diastólica > 120, clasificar como crisis hipertensiva</description>
+            <condition>
+                <or>
+                    <greater_than field="systolic" value="180"/>
+                    <greater_than field="diastolic" value="120"/>
+                </or>
+            </condition>
+            <action>
+                <set field="severidad" value="crítica"/>
+                <alert priority="urgent">Requiere atención inmediata</alert>
+            </action>
+        </rule>
+    </rules>
+</ontology>

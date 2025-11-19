@@ -1,0 +1,169 @@
+{
+  "grafo_conocimiento": {
+    "metadata": {
+      "nombre": "Red de Colaboración Científica",
+      "descripcion": "Grafo que representa colaboraciones entre investigadores en IA",
+      "version": "1.0",
+      "fecha_creacion": "2025-11-19",
+      "estadisticas": {
+        "num_nodos": 50,
+        "num_aristas": 87,
+        "densidad": 0.0718,
+        "diametro": 6
+      }
+    },
+    "nodos": [
+      {
+        "id": "INV001",
+        "tipo": "investigador",
+        "propiedades": {
+          "nombre": "Dr. María González",
+          "institucion": "MIT",
+          "area_investigacion": "Computer Vision",
+          "h_index": 42,
+          "num_publicaciones": 87,
+          "años_experiencia": 15
+        }
+      },
+      {
+        "id": "INV002",
+        "tipo": "investigador",
+        "propiedades": {
+          "nombre": "Prof. John Smith",
+          "institucion": "Stanford University",
+          "area_investigacion": "NLP",
+          "h_index": 56,
+          "num_publicaciones": 134,
+          "años_experiencia": 22
+        }
+      },
+      {
+        "id": "INV003",
+        "tipo": "investigador",
+        "propiedades": {
+          "nombre": "Dra. Li Wei",
+          "institucion": "Tsinghua University",
+          "area_investigacion": "Reinforcement Learning",
+          "h_index": 38,
+          "num_publicaciones": 72,
+          "años_experiencia": 12
+        }
+      },
+      {
+        "id": "PUB001",
+        "tipo": "publicacion",
+        "propiedades": {
+          "titulo": "Attention Mechanisms in Vision Transformers",
+          "año": 2024,
+          "venue": "CVPR",
+          "citas": 234,
+          "doi": "10.1109/CVPR.2024.12345"
+        }
+      },
+      {
+        "id": "PUB002",
+        "tipo": "publicacion",
+        "propiedades": {
+          "titulo": "Cross-lingual Transfer Learning",
+          "año": 2024,
+          "venue": "ACL",
+          "citas": 187,
+          "doi": "10.18653/v1/2024.acl-long.123"
+        }
+      },
+      {
+        "id": "CONF001",
+        "tipo": "conferencia",
+        "propiedades": {
+          "nombre": "NeurIPS 2024",
+          "ubicacion": "Vancouver, Canada",
+          "fecha": "2024-12-10",
+          "aceptacion_rate": 0.23
+        }
+      }
+    ],
+    "aristas": [
+      {
+        "id": "E001",
+        "fuente": "INV001",
+        "destino": "INV002",
+        "tipo": "COLABORA_CON",
+        "propiedades": {
+          "num_papers_conjuntos": 8,
+          "fecha_primera_colaboracion": "2018-03-15",
+          "fecha_ultima_colaboracion": "2025-09-20",
+          "fuerza_colaboracion": 0.85
+        }
+      },
+      {
+        "id": "E002",
+        "fuente": "INV001",
+        "destino": "PUB001",
+        "tipo": "ES_AUTOR_DE",
+        "propiedades": {
+          "rol": "autor_principal",
+          "contribucion_porcentaje": 45
+        }
+      },
+      {
+        "id": "E003",
+        "fuente": "INV002",
+        "destino": "PUB001",
+        "tipo": "ES_AUTOR_DE",
+        "propiedades": {
+          "rol": "coautor",
+          "contribucion_porcentaje": 30
+        }
+      },
+      {
+        "id": "E004",
+        "fuente": "PUB001",
+        "destino": "CONF001",
+        "tipo": "PRESENTADO_EN",
+        "propiedades": {
+          "tipo_presentacion": "oral",
+          "fecha": "2024-12-12"
+        }
+      },
+      {
+        "id": "E005",
+        "fuente": "INV002",
+        "destino": "INV003",
+        "tipo": "COLABORA_CON",
+        "propiedades": {
+          "num_papers_conjuntos": 3,
+          "fecha_primera_colaboracion": "2022-06-10",
+          "fecha_ultima_colaboracion": "2024-11-05",
+          "fuerza_colaboracion": 0.62
+        }
+      },
+      {
+        "id": "E006",
+        "fuente": "PUB002",
+        "destino": "PUB001",
+        "tipo": "CITA_A",
+        "propiedades": {
+          "contexto": "methodological_foundation",
+          "num_citas_en_texto": 5
+        }
+      }
+    ],
+    "consultas_ejemplo": {
+      "investigadores_por_area": {
+        "descripcion": "Encontrar todos los investigadores en un área específica",
+        "cypher": "MATCH (i:investigador) WHERE i.area_investigacion = 'NLP' RETURN i",
+        "json_path": "$.nodos[?(@.tipo=='investigador' && @.propiedades.area_investigacion=='NLP')]"
+      },
+      "colaboraciones_fuertes": {
+        "descripcion": "Encontrar colaboraciones con fuerza > 0.8",
+        "cypher": "MATCH (i1)-[c:COLABORA_CON]-(i2) WHERE c.fuerza_colaboracion > 0.8 RETURN i1, c, i2",
+        "json_path": "$.aristas[?(@.tipo=='COLABORA_CON' && @.propiedades.fuerza_colaboracion > 0.8)]"
+      },
+      "papers_mas_citados": {
+        "descripcion": "Top 3 publicaciones por número de citas",
+        "cypher": "MATCH (p:publicacion) RETURN p ORDER BY p.citas DESC LIMIT 3",
+        "json_path": "$.nodos[?(@.tipo=='publicacion')].sort_by(@.propiedades.citas)[:3]"
+      }
+    }
+  }
+}

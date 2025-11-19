@@ -1,0 +1,7 @@
+"id_paciente","nombre_completo","fecha_nacimiento","diagnostico","medicacion","notas_medicas"
+"PAC-001","González Ruiz, María del Carmen","1985-05-12","Hipertensión Arterial","Losartán 50mg, Hidroclorotiazida 12.5mg","Paciente con antecedentes familiares. Controlar cada 3 meses."
+"PAC-002","Pérez Martínez, José Luis","1972-11-28","Diabetes Tipo 2","Metformina 850mg, Glibenclamida 5mg","Dieta controlada. HbA1c: 7.2%. Próxima cita: 2025-12-15"
+"PAC-003","Rodríguez López, Ana Isabel","1990-03-07","Asma Bronquial","Salbutamol 100mcg (inhalador), Fluticasona 250mcg","Crisis asmática en 2024. Evitar: polen, ácaros. Estado actual: ""Estable"""
+"PAC-004","Martínez Sánchez, Carlos Eduardo","1968-08-19","Artritis Reumatoide","Metotrexato 15mg semanal, Ácido fólico 5mg","Dolor articular moderado. Paciente dice: ""Mejor que el mes pasado"""
+"PAC-005","Fernández García, Laura","1995-12-03","Migraña Crónica","Topiramato 100mg, Sumatriptán 50mg (rescate)","Frecuencia: 8-10 episodios/mes. Factores: estrés, falta sueño"
+"PAC-006","López Torres, Miguel Ángel","1980-07-22","Depresión Mayor","Sertralina 100mg, Clonazepam 0.5mg nocturno","En seguimiento psicológico. Mejoría gradual. Nota: ""Paciente expresó ideas suicidas en Feb/2025"""

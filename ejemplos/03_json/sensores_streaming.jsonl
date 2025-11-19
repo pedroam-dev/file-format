@@ -1,0 +1,12 @@
+{"timestamp": "2025-11-19T08:00:00Z", "sensor_id": "TEMP-001", "temperatura": 22.5, "humedad": 65.3, "ubicacion": "Laboratorio A"}
+{"timestamp": "2025-11-19T08:00:00Z", "sensor_id": "TEMP-002", "temperatura": 18.3, "humedad": 72.5, "ubicacion": "Sala Servidores"}
+{"timestamp": "2025-11-19T08:00:00Z", "sensor_id": "TEMP-003", "temperatura": 25.2, "humedad": 58.7, "ubicacion": "Oficina Principal"}
+{"timestamp": "2025-11-19T08:15:00Z", "sensor_id": "TEMP-001", "temperatura": 22.7, "humedad": 64.8, "ubicacion": "Laboratorio A"}
+{"timestamp": "2025-11-19T08:15:00Z", "sensor_id": "TEMP-002", "temperatura": 18.8, "humedad": 71.9, "ubicacion": "Sala Servidores"}
+{"timestamp": "2025-11-19T08:15:00Z", "sensor_id": "TEMP-003", "temperatura": 25.8, "humedad": 57.9, "ubicacion": "Oficina Principal"}
+{"timestamp": "2025-11-19T08:30:00Z", "sensor_id": "TEMP-001", "temperatura": 23.1, "humedad": 64.2, "ubicacion": "Laboratorio A"}
+{"timestamp": "2025-11-19T08:30:00Z", "sensor_id": "TEMP-002", "temperatura": 19.5, "humedad": 71.2, "ubicacion": "Sala Servidores"}
+{"timestamp": "2025-11-19T08:30:00Z", "sensor_id": "TEMP-003", "temperatura": 26.4, "humedad": 57.1, "ubicacion": "Oficina Principal"}
+{"timestamp": "2025-11-19T08:45:00Z", "sensor_id": "TEMP-001", "temperatura": 23.4, "humedad": 63.9, "ubicacion": "Laboratorio A"}
+{"timestamp": "2025-11-19T08:45:00Z", "sensor_id": "TEMP-002", "temperatura": 20.1, "humedad": 70.8, "ubicacion": "Sala Servidores"}
+{"timestamp": "2025-11-19T08:45:00Z", "sensor_id": "TEMP-003", "temperatura": 27.0, "humedad": 56.5, "ubicacion": "Oficina Principal"}
